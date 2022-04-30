@@ -2,6 +2,8 @@
   <div class="">
     <h1>Content page</h1>
     <item-list></item-list>
+    
+    <router-view></router-view>
   </div>
 </template>
 

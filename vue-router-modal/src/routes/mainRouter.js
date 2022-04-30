@@ -7,7 +7,14 @@ const routes = [
       {
         name: 'content',
         path: 'content',
-        component: () => import(/* webpackChunkName: "Content-page" */ '@/views/ContentPage.vue'),
+        component: () => import(/* webpackChunkName: "content-page" */ '@/views/ContentPage.vue'),
+        children: [
+          {
+            name: 'modal',
+            path: 'modal',
+            component: () => import(/* webpackChunkName: "modal-page" */ '@/views/ModalPage.vue'),
+          }
+        ],
       },
     ],
   },
