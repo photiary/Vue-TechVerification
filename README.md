@@ -110,9 +110,10 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
 
 - 수정
   - App.vue 
-      ```js
+      ```html
       <template>
-        <div></div>
+        <!-- vue-router를 사용할 경우 -->
+        <router-view></router-view>
       </template>
 
       <script>
@@ -165,52 +166,72 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
 
     let allRoutes = [];
     allRoutes = allRoutes.concat(
-      routes
+      routes,
     );
 
     export default new VueRouter({
       mode: 'history',
-      allRoutes,
+      routes: allRoutes,
     });
     ```
 # 개발
-- Component 는 components 폴더 하위에 생성.
+## Default Vue
+  
+컴포넌트는 src/components에 생성. 화면은 src/views에 생성
 
-    [참조 사이트: 컴포넌트 구조](https://pablohpsilva.github.io/vuejs-component-style-guide/#/korean?id=%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%98%EB%82%98%EC%9A%946)
-    ```html
-    <template lang="html">
-      <div class="Ranger__Wrapper">
-        <!-- ... -->
-      </div>
-    </template>
+[참조 사이트: 컴포넌트 구조](https://pablohpsilva.github.io/vuejs-component-style-guide/#/korean?id=%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%98%EB%82%98%EC%9A%946)
+```html
+<template lang="html">
+  <div class="Ranger__Wrapper">
+    <!-- ... -->
+  </div>
+</template>
 
-    <script type="text/javascript">
-      export default {
-        // 이름 적는 것을 잊지마세요
-        name: 'RangeSlider',
-        // compose new components
-        extends: {},
-        // 컴포넌트 어트리뷰트 그룹
-        props: {
-          bar: {}, // 알파벳순으로 정렬합니다
-          foo: {},
-          fooBar: {},
-        },
-        // 컴포넌트 변수 그룹
-        data() {},
-        computed: {},
-        // 컴포넌트가 다른 컴포넌트를 사용할 경우
-        components: {},
-        // 컴포넌트 메서드 그룹
-        watch: {},
-        methods: {},
-        // 컴포넌트 라이프사이클 메서드 그룹
-        beforeCreate() {},
-        mounted() {},
-    };
-    </script>
+<script type="text/javascript">
+  export default {
+    // 이름 적는 것을 잊지마세요
+    name: 'RangeSlider',
+    // compose new components
+    extends: {},
+    // 컴포넌트 어트리뷰트 그룹
+    props: {
+      bar: {}, // 알파벳순으로 정렬합니다
+      foo: {},
+      fooBar: {},
+    },
+    // 컴포넌트 변수 그룹
+    data() {},
+    computed: {},
+    // 컴포넌트가 다른 컴포넌트를 사용할 경우
+    components: {},
+    // 컴포넌트 메서드 그룹
+    watch: {},
+    methods: {},
+    // 컴포넌트 라이프사이클 메서드 그룹
+    beforeCreate() {},
+    mounted() {},
+};
+</script>
 
-    <style scoped>
-      .Ranger__Wrapper { /* ... */ }
-    </style>
-    ```
+<style scoped>
+  .Ranger__Wrapper { /* ... */ }
+</style>
+```
+
+## Default vex.js
+
+## Default router.js
+```js
+const routes = [
+  {
+    name: 'Page',
+    path: '',
+    component: () => import(/* webpackChunkName: "page" */ '@/views/Page.vue'),
+    children: [
+
+    ],
+  },
+];
+
+export default routes;
+```
