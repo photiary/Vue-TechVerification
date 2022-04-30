@@ -1,18 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import mainRouter from './mainRouter'
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    redirect: '/main',
   },
 ];
 
 let allRoutes = [];
 allRoutes = allRoutes.concat(
-  routes
+  routes,
+  mainRouter,
 );
 
 export default new VueRouter({
