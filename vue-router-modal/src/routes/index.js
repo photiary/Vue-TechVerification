@@ -17,5 +17,5 @@ allRoutes = allRoutes.concat(
 
 export default new VueRouter({
   mode: 'history',
-  allRoutes,
+  routes: allRoutes,
 });
