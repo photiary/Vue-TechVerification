@@ -1,5 +1,5 @@
 # vue-tech-verification
-VUE 기술 검증을 위한 프로젝트
+Vue.js 기술 검증을 위한 프로젝트
 
 # vue-cli
 Install
@@ -18,6 +18,7 @@ vue create projectName
 # hello-vue
 
 ### Project setup
+생성한 프로젝트로 이동
 ```
 npm install
 ```
@@ -43,6 +44,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # 초기 설정
 
 ### ESLint
+생성한 프로젝트로 이동
 - Install
     ```
     npm install -g -d eslint
@@ -86,8 +88,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     npm install vuex@3.6.2 --save
     ```
 
-### Vetur
+### Vue-Router
+- install
+    ```
+    npm install vue-router@3.2.0 --save
+    ```
 
+### Vetur VS Code Plugin
 > Property 'arg' does not exist on type 'unknown'.Vetur(2339)
 
 VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지가 사라진다.)
@@ -95,30 +102,77 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
 "vetur.validation.interpolation": false
 ```
 
-### 파일 수정
-- HelloWorld.vue 파일 삭제
-- App.vue 파일 수정
+### 파일 생성, 수정, 삭제
+
+- 삭제
+  - src/components/HelloWorld.vue
+  - src/assets/logo.png
+
+- 수정
+  - App.vue 
+      ```js
+      <template>
+        <div></div>
+      </template>
+
+      <script>
+      export default {
+        name: 'app',
+        components: {}
+      }
+      </script>
+
+      <style>
+      </style>
+     ```
+
+  - jsconfig.json 수정
+      ```json
+      "target": "es6"
+      ```
+
+- 생성
+  - src/views
+  - src/store/index.js
     ```js
-    <template>
-      <div></div>
-    </template>
+    import Vue from "vue";
+    import Vuex from "vuex";
 
-    <script>
-    export default {
-      name: 'app',
-      components: {}
-    }
-    </script>
+    Vue.use(Vuex);
 
-    <style>
-    </style>
-   ```
-
-- jsconfig.json 파일 수정
-    ```json
-    "target": "es6"
+    export default new Vuex.Store({
+      state: {},
+      getters: {},
+      mutations: {},
+      actions:{},
+      module: {},
+      plugins: [],
+    });
     ```
+  - src/routes/index.js
+    ```js
+    import Vue from 'vue'
+    import VueRouter from 'vue-router'
 
+    Vue.use(VueRouter);
+
+    const routes = [
+      {
+        path: '/',
+        name: 'Home',
+      },
+    ];
+
+    let allRoutes = [];
+    allRoutes = allRoutes.concat(
+      routes
+    );
+
+    export default new VueRouter({
+      mode: 'history',
+      allRoutes,
+    });
+    ```
 # 개발
 - Component 는 components 폴더 하위에 생성.
 
@@ -161,7 +215,6 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
     </style>
     ```
 - Store
-
     Default Store
     ```js
     import Vue from "vue";
