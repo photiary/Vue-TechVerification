@@ -1,14 +1,13 @@
 <template lang="html">
   <div class="">
-    <h1>Main page</h1>
-    <router-view></router-view>
+    <h1>Content page</h1>
   </div>
 </template>
 
 <script type="text/javascript">
   export default {
     // 이름 적는 것을 잊지마세요
-    name: 'MainPage',
+    name: 'ContentPage',
     // compose new components
     extends: {},
     // 컴포넌트 어트리뷰트 그룹
@@ -33,4 +32,5 @@
 </script>
 
 <style scoped>
+
 </style>
