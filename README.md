@@ -214,17 +214,3 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
       .Ranger__Wrapper { /* ... */ }
     </style>
     ```
-- Store
-    Default Store
-    ```js
-    import Vue from "vue";
-    import Vuex from "vuex";
-
-    Vue.use(Vuex);
-
-    export default new Vuex.Store({
-      state: {
-      
-      }
-    });
-    ```
