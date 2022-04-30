@@ -182,7 +182,7 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
 [참조 사이트: 컴포넌트 구조](https://pablohpsilva.github.io/vuejs-component-style-guide/#/korean?id=%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%98%EB%82%98%EC%9A%946)
 ```html
 <template lang="html">
-  <div class="Ranger__Wrapper">
+  <div class="Define__CSS">
     <!-- ... -->
   </div>
 </template>
@@ -190,7 +190,7 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
 <script type="text/javascript">
   export default {
     // 이름 적는 것을 잊지마세요
-    name: 'RangeSlider',
+    name: 'VueName',
     // compose new components
     extends: {},
     // 컴포넌트 어트리뷰트 그룹
@@ -200,7 +200,11 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
       fooBar: {},
     },
     // 컴포넌트 변수 그룹
-    data() {},
+    data() {
+      return {
+
+      };
+    },
     computed: {},
     // 컴포넌트가 다른 컴포넌트를 사용할 경우
     components: {},
@@ -214,7 +218,7 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
 </script>
 
 <style scoped>
-  .Ranger__Wrapper { /* ... */ }
+  .Define__CSS { /* ... */ }
 </style>
 ```
 
