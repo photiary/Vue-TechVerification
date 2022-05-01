@@ -2,7 +2,7 @@
   <div class="modal-content">
     <h1>Modal</h1>
     <button @click="$router.back()">Close.</button>
-    <button @click="clickOk">OK! (Call parent function)</button>
+    <button @click="$_modalPage_clickOk">OK! (Call parent function)</button>
   </div>
 </template>
 
@@ -34,11 +34,13 @@
     // 컴포넌트 메서드 그룹
     watch: {},
     methods: {
-      clickOk() {
+      // Vue style-guid에 따라 private function은 접두사에 $_yourPluginName_를 추가한다.
+      $_modalPage_clickOk() {
         // ModalPage에서 사용한 filterItem을 ItemList까지 전달하기 위해 같은 부모인 ContentPage로 전달한다.
         let filterItem = { name: 'modalPage_filterItem' };
-        console.log(`ModalPage.clickOk filterItems=`, filterItem);
+        console.log(`ModalPage.$_modalPage_clickOk filterItems=`, filterItem);
         this.$emit('clickOkEvent', filterItem);
+        this.$router.back();
       },
     },
     // 컴포넌트 라이프사이클 메서드 그룹
@@ -50,7 +52,7 @@
     created() {},
     mounted() {},
     destroyed() {},
-};
+  };
 
 </script>
 

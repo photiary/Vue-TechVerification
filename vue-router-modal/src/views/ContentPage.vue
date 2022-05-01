@@ -8,7 +8,7 @@
     <item-list ref="itemListComponent"></item-list>
     
     <!-- ModalPage.vue -->
-    <router-view @clickOkEvent="getItemList_ContentPage"></router-view>
+    <router-view @clickOkEvent="$_contentPage_getItemList"></router-view>
   </div>
 </template>
 
@@ -36,12 +36,11 @@ import ItemList from '@/components/ItemList'
     // 컴포넌트 메서드 그룹
     watch: {},
     methods: {
-      // 코드 분석을 쉽게 하기위해 Function 접미사로 해당 Vue를 표기.
-      // ※ 실무에서는 프로젝트의 Function 명명 규약을 따른다.
-      getItemList_ContentPage(filterItem) {
+      // Vue style-guid에 따라 private function은 접두사에 $_yourPluginName_를 추가한다.
+      $_contentPage_getItemList(filterItem) {
         // ModalPage에서 받은 filterItem를 ItemList로 전달한다.
-        console.log(`ContentPage.getItemList_ContentPage filterItem=`, filterItem);
-        this.$refs.itemListComponent.getItemList_ItemList(filterItem);
+        console.log(`ContentPage.$_contentPage_getItemList filterItem=`, filterItem);
+        this.$refs.itemListComponent.getItemList(filterItem);
       },
     },
     // 컴포넌트 라이프사이클 메서드 그룹
