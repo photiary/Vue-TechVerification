@@ -13,8 +13,7 @@
     // compose new components
     extends: {},
     // 컴포넌트 어트리뷰트 그룹
-    props: {
-    },
+    props: {},
     // 컴포넌트 변수 그룹
     data() {
       return {

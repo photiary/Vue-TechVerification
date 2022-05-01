@@ -1,9 +1,10 @@
 <template lang="html">
   <div class="">
     <h1>Content page</h1>
-    <item-list></item-list>
+    <item-list ref="itemListComponent"></item-list>
     
-    <router-view></router-view>
+    <!-- ModalPage.vue -->
+    <router-view @clickOkEvent="getItemList_ContentPage"></router-view>
   </div>
 </template>
 
@@ -16,8 +17,7 @@ import ItemList from '@/components/ItemList'
     // compose new components
     extends: {},
     // 컴포넌트 어트리뷰트 그룹
-    props: {
-    },
+    props: {},
     // 컴포넌트 변수 그룹
     data() {
       return {
@@ -31,7 +31,14 @@ import ItemList from '@/components/ItemList'
     },
     // 컴포넌트 메서드 그룹
     watch: {},
-    methods: {},
+    methods: {
+      // 코드 분석을 쉽게 하기위해 Function 접미사로 해당 Vue를 표기.
+      // ※ 실무에서는 프로젝트의 Function 명명 규약을 따른다.
+      getItemList_ContentPage(filterItem) {
+        console.log(`ContentPage.getItemList_ContentPage filterItem=`, filterItem);
+        this.$refs.itemListComponent.getItemList_ItemList(filterItem);
+      },
+    },
     // 컴포넌트 라이프사이클 메서드 그룹
     beforeCreate() {},
     mounted() {},
