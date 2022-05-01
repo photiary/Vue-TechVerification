@@ -31,5 +31,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 2. Modal 클릭 > main/content/modal
     
     RouterView가 Modal로 변경된다.
+    
     ![Component 구조](readme_assets/component-2.png)
 
