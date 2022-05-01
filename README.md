@@ -214,7 +214,7 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
     // 컴포넌트 라이프사이클 메서드 그룹
     beforeCreate() {},
     mounted() {},
-};
+  };
 </script>
 
 <style scoped>
