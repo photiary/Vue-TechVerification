@@ -1,6 +1,10 @@
 <template lang="html">
   <div class="">
     <h1>Content page</h1>
+    <!-- 
+      ref 속성으로 ContentPage에서 ItemList를 참조한다.
+      MainPage에서 ContentPage를 참조할 수 있기 때문에 MainPage에서 ItemList까지 참조 가능하다.
+    -->
     <item-list ref="itemListComponent"></item-list>
     
     <!-- ModalPage.vue -->
@@ -35,6 +39,7 @@ import ItemList from '@/components/ItemList'
       // 코드 분석을 쉽게 하기위해 Function 접미사로 해당 Vue를 표기.
       // ※ 실무에서는 프로젝트의 Function 명명 규약을 따른다.
       getItemList_ContentPage(filterItem) {
+        // ModalPage에서 받은 filterItem를 ItemList로 전달한다.
         console.log(`ContentPage.getItemList_ContentPage filterItem=`, filterItem);
         this.$refs.itemListComponent.getItemList_ItemList(filterItem);
       },

@@ -13,7 +13,15 @@
     // compose new components
     extends: {},
     // 컴포넌트 어트리뷰트 그룹
-    props: {},
+    props: {
+      filterItem: {
+        type: Object,
+        required: true,
+        default: function () {
+          return { name: 'default_filterItem'};
+        }
+      }
+    },
     // 컴포넌트 변수 그룹
     data() {
       return {
@@ -27,20 +35,22 @@
     watch: {},
     methods: {
       clickOk() {
-        let filterItem = filterItemTestData;
+        // ModalPage에서 사용한 filterItem을 ItemList까지 전달하기 위해 같은 부모인 ContentPage로 전달한다.
+        let filterItem = { name: 'modalPage_filterItem' };
         console.log(`ModalPage.clickOk filterItems=`, filterItem);
         this.$emit('clickOkEvent', filterItem);
       },
     },
     // 컴포넌트 라이프사이클 메서드 그룹
+    beforeRouteEnter (to, from, next) {
+      console.log(`${to.path} to=`, to, `, from=`, from);
+      next();
+    },
     beforeCreate() {},
-    create() {},
+    created() {},
     mounted() {},
     destroyed() {},
 };
-
-// Test data
-let filterItemTestData = { name: 'a'};
 
 </script>
 

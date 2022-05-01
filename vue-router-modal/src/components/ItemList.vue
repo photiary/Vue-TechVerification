@@ -20,10 +20,17 @@
     // 컴포넌트 변수 그룹
     data() {
       return {
-        itemList : itemListTestData,
+        filterItem: { name: 'itemList_filterItem' },
+        itemList: itemListTestData,
       };
     },
-    computed: {},
+    computed: {
+      // 부모가 filterItem를 참조할 수 있게한다.
+      getCurrentFilterItem() {
+        console.log(`ItemList.getCurrentFilterItem filterItem=`, this.filterItem);
+        return this.filterItem;
+      },
+    },
     // 컴포넌트가 다른 컴포넌트를 사용할 경우
     components: {},
     // 컴포넌트 메서드 그룹
@@ -32,7 +39,9 @@
       // 코드 분석을 쉽게 하기위해 Function 접미사로 해당 Vue를 표기.
       // ※ 실무에서는 프로젝트의 Function 명명 규약을 따른다.
       getItemList_ItemList(filterItem) {
+        // ModalPage에서 ContentPage를 거쳐서 filterItem를 전달 받는다.
         console.log(`ItemList.getItemList_ItemList filterItem=`, filterItem);
+        this.filterItem = filterItem;
       },
     },
     // 컴포넌트 라이프사이클 메서드 그룹
@@ -50,10 +59,6 @@ let itemListTestData = [
     id: '2',
     name: 'b',
   },
-  {
-    id: '3',
-    name: 'c',
-  }
 ];
 
 </script>

@@ -5,14 +5,15 @@ const routes = [
     component: () => import(/* webpackChunkName: "main-page" */ '@/views/MainPage.vue'),
     children: [
       {
-        name: 'content',
+        name: 'main.content',
         path: 'content',
         component: () => import(/* webpackChunkName: "content-page" */ '@/views/ContentPage.vue'),
         children: [
           {
-            name: 'modal',
+            name: 'main.content.modal',
             path: 'modal',
             component: () => import(/* webpackChunkName: "modal-page" */ '@/views/ModalPage.vue'),
+            props: true,
           }
         ],
       },
