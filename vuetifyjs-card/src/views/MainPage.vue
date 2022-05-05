@@ -10,7 +10,7 @@
       </v-app-bar>
       
       <!-- 배경 이미지 -->
-      <v-sheet height="150">
+      <v-sheet>
         <v-img
               class="rounded-b-xl"
               height="150"
@@ -20,7 +20,7 @@
       </v-sheet>
  
       <!-- 그룹 선택 -->
-      <v-sheet class="mx-auto mt-n6 ">
+      <v-sheet class="mt-n6" height="50">
         <v-slide-group center-active>
           <v-slide-item
             v-for="n in 10"
@@ -30,8 +30,8 @@
             <v-card
               :color="active ? 'blue' : 'grey'"
               class="ma-1"
-              height="40"
-              width="40"
+              :height="active ? 45 : 40"
+              :width="active ? 45 : 40"
               @click="toggle"
             >
             </v-card>
@@ -45,15 +45,44 @@
           <v-tab>One</v-tab>
           <v-tab>Two</v-tab>
         </v-tabs>
-        <v-icon class="pr-4">mdi-filter</v-icon>
+        <v-icon class="pr-4 ml-auto">mdi-filter</v-icon>
       </v-sheet>
 
-      <!-- 카드 목록 -->
-      <v-sheet flat class="overflow-auto" height="400">
-        <v-card height="200" class="ma-2" v-for="n in 11" :key="n" >
-          asdfasfd
+      <!-- 카드 리스트 -->
+      <v-container>
+        <v-card>
+          <v-card-title >
+            <v-row align="center">
+              <v-col cols="2">
+                <v-avatar>
+                  <v-img
+                    src="./assets/avatar-01.png"
+                    alt="Bart Simpson"
+                  ></v-img>
+                </v-avatar>
+              </v-col>
+              <v-col>
+                <span>Bart Simpson</span>
+                <br>
+                <span>2022-05-05 16:50</span>
+              </v-col>
+            </v-row>
+            <v-icon class="ml-auto">mdi-dots-horizontal</v-icon>
+          </v-card-title>
+
+          <v-img
+            src="./assets/pexels-002.jpg"
+            height="200"
+          ></v-img>
+
+          <v-card-actions class="justify-space-between">
+            <v-icon class="px-10">mdi-heart</v-icon>
+            <v-icon class="px-10">mdi-comment</v-icon>
+            <v-icon class="px-10">mdi-share-variant-outline</v-icon>
+          </v-card-actions>
         </v-card>
-      </v-sheet>
+      </v-container>
+
     </v-main>
   </v-app>
 </template>
