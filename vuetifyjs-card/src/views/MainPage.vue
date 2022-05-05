@@ -50,37 +50,41 @@
 
       <!-- 카드 리스트 -->
       <v-container>
-        <v-card>
-          <v-card-title >
-            <v-row align="center">
-              <v-col cols="2">
-                <v-avatar>
-                  <v-img
-                    src="./assets/avatar-01.png"
-                    alt="Bart Simpson"
-                  ></v-img>
-                </v-avatar>
-              </v-col>
-              <v-col>
-                <span>Bart Simpson</span>
-                <br>
-                <span>2022-05-05 16:50</span>
-              </v-col>
-            </v-row>
-            <v-icon class="ml-auto">mdi-dots-horizontal</v-icon>
-          </v-card-title>
+        <v-row v-for="(item, i) in items" :key="i">
+          <v-col>
+            <v-card>
+              <v-card-title >
+                <v-row align="center">
+                  <v-col cols="2">
+                    <v-avatar>
+                      <v-img
+                        src="./assets/avatar-01.png"
+                        alt="Bart Simpson"
+                      ></v-img>
+                    </v-avatar>
+                  </v-col>
+                  <v-col>
+                    <span>Bart Simpson</span>
+                    <br>
+                    <span>2022-05-05 16:50</span>
+                  </v-col>
+                </v-row>
+                <v-icon class="ml-auto">mdi-dots-horizontal</v-icon>
+              </v-card-title>
 
-          <v-img
-            src="./assets/pexels-002.jpg"
-            height="200"
-          ></v-img>
+              <v-img
+                src="./assets/pexels-002.jpg"
+                height="200"
+              ></v-img>
 
-          <v-card-actions class="justify-space-between">
-            <v-icon class="px-10">mdi-heart</v-icon>
-            <v-icon class="px-10">mdi-comment</v-icon>
-            <v-icon class="px-10">mdi-share-variant-outline</v-icon>
-          </v-card-actions>
-        </v-card>
+              <v-card-actions class="justify-space-between">
+                <v-icon class="px-10">mdi-heart</v-icon>
+                <v-icon class="px-10">mdi-comment</v-icon>
+                <v-icon class="px-10">mdi-share-variant-outline</v-icon>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-container>
 
     </v-main>
@@ -102,7 +106,7 @@
     // 컴포넌트 변수 그룹
     data() {
       return {
-        model: null,
+        items: ['a', 'b'],
       };
     },
     computed: {},
