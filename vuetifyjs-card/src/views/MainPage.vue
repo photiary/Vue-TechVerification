@@ -1,20 +1,26 @@
 <template lang="html">
   <v-app>
     <v-main>
-      <v-app-bar color="blue" elevation="4">
+      <v-app-bar>
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
         <v-spacer></v-spacer>
         <v-btn icon>
           <v-icon>mdi-cog-outline</v-icon>
         </v-btn>
       </v-app-bar>
+      
       <!-- 배경 이미지 -->
-      <v-sheet>
-        <v-sheet>
-        </v-sheet>
+      <v-sheet height="150">
+        <v-img
+              class="rounded-b-xl"
+              height="150"
+              src="./assets/pexels-003.jpg"
+        >
+        </v-img>
       </v-sheet>
+ 
       <!-- 그룹 선택 -->
-      <v-sheet>
+      <v-sheet class="mx-auto mt-n6 ">
         <v-slide-group center-active>
           <v-slide-item
             v-for="n in 10"
@@ -35,17 +41,17 @@
 
       <!-- 탭과 필터 -->
       <v-sheet class="d-flex">
-            <v-tabs>
-              <v-tab>One</v-tab>
-              <v-tab>Two</v-tab>
-            </v-tabs>
-            <v-icon class="pr-4">mdi-filter</v-icon>
+        <v-tabs>
+          <v-tab>One</v-tab>
+          <v-tab>Two</v-tab>
+        </v-tabs>
+        <v-icon class="pr-4">mdi-filter</v-icon>
       </v-sheet>
 
       <!-- 카드 목록 -->
       <v-sheet flat class="overflow-auto" height="400">
         <v-card height="200" class="ma-2" v-for="n in 11" :key="n" >
-          fasd
+          asdfasfd
         </v-card>
       </v-sheet>
     </v-main>

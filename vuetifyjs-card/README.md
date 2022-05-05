@@ -76,7 +76,7 @@ new Vue({
 ```
 
 ## 🍪 Spacing 
-컴포넌트의 간격을 조절 할때 사용.
+컴포넌트의 간격을 조절할 때 사용.
 
 [Vuetifyjs Spacing](https://vuetifyjs.com/ja/styles/spacing/)
 
@@ -89,6 +89,11 @@ new Vue({
 ```
 
 ## 🍪 Flex
-컴포넌트를 한줄 또는 위치를 조절 할때 사용.
+컴포넌트를 한줄 또는 위치를 조절할 때 사용.
 
 [Vuetifyjs Flex](https://vuetifyjs.com/ja/styles/flex/)
+
+## 🍪 Border Radius
+컴포넌트 모서리에 라운드를 적용할 때 사용.
+
+[Border Radius](https://vuetifyjs.com/ja/styles/border-radius/)
