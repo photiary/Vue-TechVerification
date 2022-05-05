@@ -12,9 +12,9 @@
       <!-- 배경 이미지 -->
       <v-sheet>
         <v-img
-              class="rounded-b-xl"
-              height="150"
-              src="./assets/pexels-003.jpg"
+          class="rounded-b-xl"
+          height="150"
+          src="./assets/pexels-003.jpg"
         >
         </v-img>
       </v-sheet>
@@ -45,7 +45,8 @@
           <v-tab>One</v-tab>
           <v-tab>Two</v-tab>
         </v-tabs>
-        <v-icon class="pr-4 ml-auto">mdi-filter</v-icon>
+        <!-- <v-icon class="pr-4 ml-auto" :to="{ name: 'main.filter' }">mdi-filter</v-icon> -->
+        <v-icon class="pr-4 ml-auto" @click="$_mainPage_clickFilter">mdi-filter</v-icon>
       </v-sheet>
 
       <!-- 카드 리스트 -->
@@ -87,6 +88,7 @@
         </v-row>
       </v-container>
 
+      <router-view></router-view>  
     </v-main>
   </v-app>
 </template>
@@ -114,7 +116,12 @@
     components: {},
     // 컴포넌트 메서드 그룹
     watch: {},
-    methods: {},
+    methods: {
+      $_mainPage_clickFilter() {
+        console.log(`MainPage._mainPage_clickFilter`);
+        this.$router.push({ name: 'main.filter' });
+      },
+    },
     // 컴포넌트 라이프사이클 메서드 그룹
     beforeCreate() {},
     mounted() {},
