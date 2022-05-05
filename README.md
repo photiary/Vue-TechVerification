@@ -55,7 +55,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     eslint --init
     ```
     - How would you like to use ESLint? · **problems**
-    - What type of modules does your project use? · **esm**
+    - What type of modules does your project use? · **esm** (JavaScript modules)
     - Which framework does your project use? · **vue**
     - Does your project use TypeScript? · **No**
     - Where does your code run? · **browser**
@@ -108,30 +108,6 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
   - src/components/HelloWorld.vue
   - src/assets/logo.png
 
-- 수정
-  - App.vue 
-      ```html
-      <template>
-        <!-- vue-router를 사용할 경우 -->
-        <router-view></router-view>
-      </template>
-
-      <script>
-      export default {
-        name: 'app',
-        components: {}
-      }
-      </script>
-
-      <style>
-      </style>
-     ```
-
-  - jsconfig.json 수정
-      ```json
-      "target": "es6"
-      ```
-
 - 생성
   - src/views
   - src/store/index.js
@@ -174,6 +150,48 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
       routes: allRoutes,
     });
     ```
+
+- 수정
+  - src/App.vue 
+    ```html
+    <template>
+      <!-- vue-router를 사용할 경우 -->
+      <router-view></router-view>
+    </template>
+
+    <script>
+    export default {
+      name: 'app',
+      components: {}
+    }
+    </script>
+
+    <style>
+    </style>
+     ```
+
+  - src/main.js
+    ```js
+    import Vue from 'vue'
+    import App from './App.vue'
+    import router from '@/routes/index'
+    import store from '@/store/index'
+
+    Vue.config.productionTip = false
+
+    new Vue({
+      render: h => h(App),
+      router,
+      store,
+    }).$mount('#app')
+
+    ```
+
+  - jsconfig.json 수정
+      ```json
+      "target": "es6"
+      ```
+
 # 개발
 ## Default Vue
   
