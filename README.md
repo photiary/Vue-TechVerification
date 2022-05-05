@@ -17,12 +17,12 @@ vue create projectName
 
 # hello-vue
 
-### Project setup
-생성한 프로젝트로 이동
+### 생성한 프로젝트로 이동
 ```
 cd projectName
 ```
 
+### Project setup
 ```
 npm install
 ```
@@ -139,7 +139,7 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
 
     const routes = [
       {
-        name: 'Home',
+        name: 'home',
         path: '/',
       },
     ];
@@ -250,7 +250,7 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
 ```js
 const routes = [
   {
-    name: 'Page',
+    name: 'page',
     path: '',
     component: () => import(/* webpackChunkName: "page" */ '@/views/Page.vue'),
     children: [
