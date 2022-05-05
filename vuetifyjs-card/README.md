@@ -64,3 +64,31 @@ new Vue({
   vuetify,
 }).$mount('#app')
 ```
+
+# Reference Site
+
+## 🍪 Material Design Icons
+아이콘 이름을 검색할 때 사용. `mdi-`에 사용할 아이콘의 이름을 접미사로 사용
+
+[Material Design Icons](https://materialdesignicons.com/)
+```html
+<v-icon>mdi-filter</v-icon>
+```
+
+## 🍪 Spacing 
+컴포넌트의 간격을 조절 할때 사용.
+
+[Vuetifyjs Spacing](https://vuetifyjs.com/ja/styles/spacing/)
+
+- `p` - `padding`을 적용.
+- `r` - `margin-right`와`padding-right`을 적용.
+- size - 3의 배수로 사이즈가 달라진다. 4 * 3 = 12px
+
+```html
+<v-icon class="pr-4">mdi-filter</v-icon>
+```
+
+## 🍪 Flex
+컴포넌트를 한줄 또는 위치를 조절 할때 사용.
+
+[Vuetifyjs Flex](https://vuetifyjs.com/ja/styles/flex/)
