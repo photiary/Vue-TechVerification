@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-card>
+  <v-card tile>
     <v-toolbar
       flat
       color="primary">
@@ -41,8 +41,8 @@
     </v-card-text>
 
     <v-card-actions class="justify-center">
-    <v-btn color="primary" rounded>OK</v-btn>
-    <v-btn color="primary" rounded>NO</v-btn>
+      <v-btn color="primary" rounded>OK</v-btn>
+      <v-btn color="primary" @click.stop="$router.back()" rounded>NO</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -69,7 +69,11 @@
     methods: {},
     // 컴포넌트 라이프사이클 메서드 그룹
     beforeCreate() {},
-    mounted() {},
+    create() {},
+    mounted() {
+      this.$emit('mountedFilterPage');
+    },
+    destroyed() {},
   };
 </script>
 

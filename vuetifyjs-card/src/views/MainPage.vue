@@ -1,6 +1,6 @@
 <template lang="html">
   <v-app>
-    <v-main>
+    <v-main class="overflow-hidden">
       <v-app-bar>
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
         <v-spacer></v-spacer>
@@ -10,14 +10,19 @@
       </v-app-bar>
       
       <!-- 배경 이미지 -->
-      <v-sheet>
-        <v-img
-          class="rounded-b-xl"
-          height="150"
-          src="./assets/pexels-003.jpg"
+      <v-expand-transition>
+        <v-sheet
+          v-show="expand"
+          secondary
         >
-        </v-img>
-      </v-sheet>
+          <v-img
+            class="rounded-b-xl"
+            height="150"
+            src="./assets/pexels-003.jpg"
+          >
+          </v-img>
+        </v-sheet>
+      </v-expand-transition>
  
       <!-- 그룹 선택 -->
       <v-sheet class="mt-n6" height="50">
@@ -45,14 +50,16 @@
           <v-tab>One</v-tab>
           <v-tab>Two</v-tab>
         </v-tabs>
-        <!-- <v-icon class="pr-4 ml-auto" :to="{ name: 'main.filter' }">mdi-filter</v-icon> -->
-        <v-icon class="pr-4 ml-auto" @click="$_mainPage_clickFilter">mdi-filter</v-icon>
+        <v-icon class="pr-4 ml-auto" @click.stop="$_mainPage_clickFilter">mdi-filter</v-icon>
       </v-sheet>
-
+      
       <!-- 카드 리스트 -->
-      <v-container>
+      <v-sheet class="overflow-x-hidden overflow-y-auto" height="400" id="scroll-target" v-scroll:#scroll-target="$_on_scroll">
         <v-row v-for="(item, i) in items" :key="i">
           <v-col>
+            <v-card flat align="center">
+              <v-chip class="ma-2">2022-05-01</v-chip>
+            </v-card>
             <v-card>
               <v-card-title >
                 <v-row align="center">
@@ -86,9 +93,17 @@
             </v-card>
           </v-col>
         </v-row>
-      </v-container>
+      </v-sheet>
 
-      <router-view></router-view>  
+      <v-navigation-drawer
+        v-model="drawer"
+        absolute
+        bottom
+        temporary
+        class="rounded-t-lg"
+      >
+        <router-view @mountedFilterPage="$_mounted_filter_page"></router-view>  
+      </v-navigation-drawer>
     </v-main>
   </v-app>
 </template>
@@ -109,6 +124,9 @@
     data() {
       return {
         items: ['a', 'b'],
+        drawer: false,
+        expand: true,
+        // offsetTop: 0,
       };
     },
     computed: {},
@@ -117,13 +135,24 @@
     // 컴포넌트 메서드 그룹
     watch: {},
     methods: {
-      $_mainPage_clickFilter() {
-        console.log(`MainPage._mainPage_clickFilter`);
+      $_mainPage_clickFilter: function () {
+        console.log(`MainPage.$_mainPage_clickFilter`);
         this.$router.push({ name: 'main.filter' });
+      },
+      $_mounted_filter_page: function () {
+        this.drawer = !this.drawer;
+      },
+      $_on_scroll: function (e) {
+        if (this.expand && e.target.scrollTop > 50) {
+          this.expand = false;
+        } else if (e.target.scrollTop === 0) {
+          this.expand = true;
+        }
       },
     },
     // 컴포넌트 라이프사이클 메서드 그룹
     beforeCreate() {},
+    create() {},
     mounted() {},
   };
 </script>
