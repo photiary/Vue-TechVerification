@@ -20,6 +20,10 @@ vue create projectName
 ### Project setup
 생성한 프로젝트로 이동
 ```
+cd projectName
+```
+
+```
 npm install
 ```
 
@@ -91,7 +95,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### Vue-Router
 - install
     ```
-    npm install vue-router@3.2.0 --save
+    npm install vue-router@3.5.3 --save
     ```
 
 ### Vetur VS Code Plugin
@@ -135,8 +139,8 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
 
     const routes = [
       {
-        path: '/',
         name: 'Home',
+        path: '/',
       },
     ];
 
