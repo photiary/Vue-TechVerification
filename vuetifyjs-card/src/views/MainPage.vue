@@ -12,8 +12,7 @@
         Image
       </div>
       <v-sheet
-        class="mx-auto"
-        max-width="700"
+        class="mx-auto my-5"
       >
         <v-slide-group
           v-model="model"
@@ -26,7 +25,7 @@
           >
             <v-card
               :color="active ? 'primary' : 'grey lighten-1'"
-              class="ma-2"
+              class="ma-1"
               height="40"
               width="40"
               @click="toggle"
@@ -35,9 +34,22 @@
           </v-slide-item>
         </v-slide-group>
       </v-sheet>
-      <v-container>
-        Hello World
-      </v-container>
+      <v-card
+        class="d-flex"
+        flat
+      >
+            <v-tabs>
+              <v-tab>One</v-tab>
+              <v-tab>Two</v-tab>
+            </v-tabs>
+            <v-icon class="mr-3">mdi-filter</v-icon>
+      </v-card>
+
+      <v-card flat class="overflow-auto" height="400">
+        <v-card height="200" class="my-3 mx-3" v-for="n in 11" :key="n" >
+          fasd
+        </v-card>
+      </v-card>
     </v-main>
   </v-app>
 </template>
