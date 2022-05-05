@@ -8,23 +8,21 @@
           <v-icon>mdi-cog-outline</v-icon>
         </v-btn>
       </v-app-bar>
-      <div>
-        Image
-      </div>
-      <v-sheet
-        class="mx-auto my-5"
-      >
-        <v-slide-group
-          v-model="model"
-          center-active
-        >
+      <!-- 배경 이미지 -->
+      <v-sheet>
+        <v-sheet>
+        </v-sheet>
+      </v-sheet>
+      <!-- 그룹 선택 -->
+      <v-sheet>
+        <v-slide-group center-active>
           <v-slide-item
             v-for="n in 10"
             :key="n"
             v-slot="{ active, toggle }"
           >
             <v-card
-              :color="active ? 'primary' : 'grey lighten-1'"
+              :color="active ? 'blue' : 'grey'"
               class="ma-1"
               height="40"
               width="40"
@@ -34,22 +32,22 @@
           </v-slide-item>
         </v-slide-group>
       </v-sheet>
-      <v-card
-        class="d-flex"
-        flat
-      >
+
+      <!-- 탭과 필터 -->
+      <v-sheet class="d-flex">
             <v-tabs>
               <v-tab>One</v-tab>
               <v-tab>Two</v-tab>
             </v-tabs>
-            <v-icon class="mr-3">mdi-filter</v-icon>
-      </v-card>
+            <v-icon class="pr-4">mdi-filter</v-icon>
+      </v-sheet>
 
-      <v-card flat class="overflow-auto" height="400">
-        <v-card height="200" class="my-3 mx-3" v-for="n in 11" :key="n" >
+      <!-- 카드 목록 -->
+      <v-sheet flat class="overflow-auto" height="400">
+        <v-card height="200" class="ma-2" v-for="n in 11" :key="n" >
           fasd
         </v-card>
-      </v-card>
+      </v-sheet>
     </v-main>
   </v-app>
 </template>
