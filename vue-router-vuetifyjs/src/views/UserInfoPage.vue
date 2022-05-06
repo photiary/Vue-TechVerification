@@ -5,7 +5,7 @@
       class="rounded-0"
       v-show="isMounted">
       <v-app-bar>
-        <v-icon @click.stop="$router.back()">
+        <v-icon @click.stop="$router.go(-2)">
           mdi-arrow-left
         </v-icon>
       </v-app-bar>

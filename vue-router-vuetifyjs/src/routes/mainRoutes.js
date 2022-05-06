@@ -4,7 +4,11 @@ const routes = [
     path: '/main',
     component: () => import(/* webpackChunkName: "main" */ '@/views/MainPage.vue'),
     children: [
-
+      {
+        // Back 버튼으로 새로운 레이어을 닫기 위해 가짜 패스
+        name: 'main.layer',
+        path: 'layer',
+      },
     ],
   },
   {

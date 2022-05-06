@@ -5,7 +5,8 @@
       v-model="isNavigationDrawer">
       <v-list dense>
         <v-list-item
-          link :to="{ name: 'userInfo' }"
+          link
+          :to="{ name: 'userInfo' }"
         >
           <v-list-item-icon>
             <v-icon>mdi-account</v-icon>
@@ -19,7 +20,7 @@
 
     <v-app-bar app>
       <v-app-bar-nav-icon
-        @click.stop="isNavigationDrawer = !isNavigationDrawer"></v-app-bar-nav-icon>
+        @click.stop="$_click_app_bar_nav_icon"></v-app-bar-nav-icon>
     </v-app-bar>
 
     <!-- アプリケーションのコンポーネントに基づいてコンテンツのサイズを決定 -->
@@ -56,7 +57,12 @@ export default {
   components: {},
   // 컴포넌트 메서드 그룹
   watch: {},
-  methods: {},
+  methods: {
+    $_click_app_bar_nav_icon: function () {
+      this.$router.push({ name: 'main.layer' });
+      this.isNavigationDrawer = !this.isNavigationDrawer;
+    },
+  },
   // 컴포넌트 라이프사이클 메서드 그룹
   beforeCreate() {},
 }
