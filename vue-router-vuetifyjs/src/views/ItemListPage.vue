@@ -21,7 +21,6 @@
     // 컴포넌트 변수 그룹
     data() {
       return {
-        isMounted: false,
       };
     },
     computed: {},
@@ -32,9 +31,7 @@
     methods: {},
     // 컴포넌트 라이프사이클 메서드 그룹
     beforeCreate() {},
-    mounted() {
-      this.isMounted = !this.isMounted;
-    },
+    mounted() {},
   };
 </script>
 

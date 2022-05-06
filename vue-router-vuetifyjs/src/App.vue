@@ -1,22 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer
-      app
-      v-model="isNavigationDrawer">
-      <v-list dense>
-        <v-list-item
-          link
-          :to="{ name: 'userInfo' }"
-        >
-          <v-list-item-icon>
-            <v-icon>mdi-account</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            User Info
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+    <p-navigation-drawer v-model="isNavigationDrawer"></p-navigation-drawer>
 
     <v-app-bar app>
       <v-app-bar-nav-icon
@@ -42,6 +26,8 @@
 </template>
 
 <script>
+import PNavigationDrawer from "@/components/PNavigationDrawer"
+
 export default {
   name: 'app',
   // compose new components
@@ -54,7 +40,9 @@ export default {
   },
   computed: {},
   // 컴포넌트가 다른 컴포넌트를 사용할 경우
-  components: {},
+  components: {
+    PNavigationDrawer,
+  },
   // 컴포넌트 메서드 그룹
   watch: {},
   methods: {
