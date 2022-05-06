@@ -1,6 +1,8 @@
 # vue-tech-verification
 Vue.js 기술 검증을 위한 프로젝트
 
+[Vue](https://jp.vuejs.org/index.html) + [Vue Router](https://v3.router.vuejs.org/ja/) + [Vuex](https://v3.vuex.vuejs.org/ja/)
+
 # vue-cli
 Install
 ```
@@ -244,7 +246,7 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
 </style>
 ```
 
-## Default vex.js
+## Default vuex.js
 
 ## Default router.js
 ```js
