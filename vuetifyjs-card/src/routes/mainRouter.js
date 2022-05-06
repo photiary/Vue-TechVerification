@@ -7,7 +7,16 @@ const routes = [
       {
         name: 'main.filter',
         path: 'filter',
-        component: () => import(/* webpackChunkName: "filter-page" */ '@/views/FilterPage.vue'),
+        components: {
+          Filter: () => import(/* webpackChunkName: "filter-page" */ '@/views/FilterPage.vue'),
+        }
+      },
+      {
+        name: 'main.registryCard',
+        path: 'registryCard',
+        components: {
+          RegistryCard: () => import(/* webpackChunkName: "registry-card" */ '@/views/RegistryCardPage.vue'),
+        }
       },
     ],
   },

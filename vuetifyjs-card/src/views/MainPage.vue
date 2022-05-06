@@ -120,6 +120,7 @@
           dark
           small
           color="indigo"
+          :to="{ name: 'main.registryCard' }"
         >
           <v-icon>mdi-plus</v-icon>
         </v-btn>
@@ -133,9 +134,10 @@
         temporary
         class="rounded-t-lg"
       >
-        <router-view @mountedFilterPage="$_mounted_filter_page"></router-view>  
+        <router-view name="Filter" @mountedFilterPage="$_mounted_filter_page"></router-view>  
       </v-navigation-drawer>
     </v-main>
+    <router-view name="RegistryCard"></router-view>  
   </v-app>
 </template>
 
