@@ -50,7 +50,7 @@
           <v-tab>One</v-tab>
           <v-tab>Two</v-tab>
         </v-tabs>
-        <v-icon class="pr-4 ml-auto" @click.stop="$_mainPage_clickFilter">mdi-filter</v-icon>
+        <v-icon class="pr-4 ml-auto" @click.stop="$_main_page_click_filter">mdi-filter</v-icon>
       </v-sheet>
       
       <!-- 카드 리스트 -->
@@ -95,6 +95,37 @@
         </v-row>
       </v-sheet>
 
+      <!-- 플로팅 버튼 -->
+      <v-speed-dial v-model="fab" :direction="'top'" :transition="'slide-y-reverse-transition'" class="v-speed-dial">
+        <template v-slot:activator>
+          <v-btn
+            color="pink"
+            fab
+            large
+            dark
+            bottom
+            right
+            class="v-btn-floating"
+          >
+            <v-icon v-if="fab">
+              mdi-close
+            </v-icon>
+            <v-icon v-else>
+              mdi-plus
+            </v-icon>
+          </v-btn>
+        </template>
+        <v-btn
+          fab
+          dark
+          small
+          color="indigo"
+        >
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
+      </v-speed-dial>
+
+      <!-- 필터 레이어 -->
       <v-navigation-drawer
         v-model="drawer"
         absolute
@@ -126,7 +157,7 @@
         items: ['a', 'b'],
         drawer: false,
         expand: true,
-        // offsetTop: 0,
+        fab: false,
       };
     },
     computed: {},
@@ -135,7 +166,7 @@
     // 컴포넌트 메서드 그룹
     watch: {},
     methods: {
-      $_mainPage_clickFilter: function () {
+      $_main_page_click_filter: function () {
         console.log(`MainPage.$_mainPage_clickFilter`);
         this.$router.push({ name: 'main.filter' });
       },
@@ -158,4 +189,13 @@
 </script>
 
 <style scoped>
+.v-speed-dial {
+  bottom: 0;
+  position: absolute;
+  margin: 0 0 16px 16px;
+}
+
+.v-btn-floating {
+  position: relative;
+}
 </style>
