@@ -1,16 +1,19 @@
 <template lang="html">
-  <v-card
-    elevation="0"
-    class="rounded-0">
-    <v-app-bar>
-      <v-icon @click.stop="$router.back()">
-        mdi-arrow-left
-      </v-icon>
-    </v-app-bar>
-    <v-card-text>
-      UserInfoPage
-    </v-card-text>
-  </v-card>
+  <v-slide-x-reverse-transition :hide-on-leave="true">
+    <v-card
+      elevation="0"
+      class="rounded-0"
+      v-show="isMounted">
+      <v-app-bar>
+        <v-icon @click.stop="$router.back()">
+          mdi-arrow-left
+        </v-icon>
+      </v-app-bar>
+      <v-card-text>
+        UserInfoPage
+      </v-card-text>
+    </v-card>
+  </v-slide-x-reverse-transition>
 </template>
 
 <script type="text/javascript">
@@ -23,7 +26,9 @@
     props: {},
     // 컴포넌트 변수 그룹
     data() {
-      return {};
+      return {
+        isMounted: false,
+      };
     },
     computed: {},
     // 컴포넌트가 다른 컴포넌트를 사용할 경우
@@ -33,6 +38,9 @@
     methods: {},
     // 컴포넌트 라이프사이클 메서드 그룹
     beforeCreate() {},
+    mounted() {
+      this.isMounted = !this.isMounted;
+    },
   };
 </script>
 

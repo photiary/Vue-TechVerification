@@ -4,7 +4,9 @@
       app
       v-model="isNavigationDrawer">
       <v-list dense>
-        <v-list-item link :to="{ name: 'userInfo' }">
+        <v-list-item
+          link :to="{ name: 'userInfo' }"
+        >
           <v-list-item-icon>
             <v-icon>mdi-account</v-icon>
           </v-list-item-icon>
