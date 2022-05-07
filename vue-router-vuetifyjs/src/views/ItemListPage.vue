@@ -1,6 +1,7 @@
 <template lang="html">
   <v-slide-x-reverse-transition :hide-on-leave="true">
     <v-card
+      color="blue"
       :to="{ name: 'itemInfo' }"
     >
       <v-card-text>

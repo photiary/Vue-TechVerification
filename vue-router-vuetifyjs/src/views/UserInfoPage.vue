@@ -1,6 +1,7 @@
 <template lang="html">
   <v-slide-x-reverse-transition :hide-on-leave="true">
     <v-card
+      color="blue"
       elevation="0"
       class="rounded-0"
       v-show="isMounted">

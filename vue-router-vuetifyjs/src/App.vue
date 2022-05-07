@@ -2,10 +2,12 @@
   <v-app>
     <v-navigation-drawer
       app
-      v-model="isNavigationDrawer"
+      v-model="isActiveNavigationDrawer"
       @input="$_back_router">
       <v-list dense>
-        <v-list-item link :to="{ name: 'userInfo' }">
+        <v-list-item
+          link
+          :to="{ name: 'userInfo' }">
           <v-list-item-icon>
             <v-icon>mdi-account</v-icon>
           </v-list-item-icon>
@@ -16,7 +18,9 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app>
+    <v-app-bar
+      app
+      v-model="isActiveAppBar">
       <v-app-bar-nav-icon
         @click.stop="$_click_app_bar_nav_icon"></v-app-bar-nav-icon>
     </v-app-bar>
@@ -47,15 +51,22 @@ export default {
   // 컴포넌트 어트리뷰트 그룹
   data() {
     return {
-      isNavigationDrawer: false,
+      isActiveAppBar: true,
+      isActiveNavigationDrawer: false,
     };
   },
   computed: {},
   // 컴포넌트가 다른 컴포넌트를 사용할 경우
   components: {},
   // 컴포넌트 메서드 그룹
-  watch: {},
+  watch: {
+    $route: '$_onRouteChange',
+  },
   methods: {
+    $_onRouteChange: function () {
+      // 메인 페이지에서만 표시다하도록 한다.
+      this.isActiveAppBar = this.$route.name.includes('main');
+    },
     $_back_router: function (isActive) {
       if (!isActive) {
         // 브라우저의 뒤로가기 버튼을 클릭해도 isActive가 false여서 실행되기 때문에 main에서 실행되지 않기 위해 비교한다.
@@ -66,8 +77,9 @@ export default {
       }
     },
     $_click_app_bar_nav_icon: function () {
+      // 브라우저의 뒤로가기 버튼으로도 닫게 하기위해서 가짜 패스로 이동한다.
       this.$router.push({ name: 'main.layer' });
-      this.isNavigationDrawer = !this.isNavigationDrawer;
+      this.isActiveNavigationDrawer = !this.isActiveNavigationDrawer;
     },
   },
   // 컴포넌트 라이프사이클 메서드 그룹
