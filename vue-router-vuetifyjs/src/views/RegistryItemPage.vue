@@ -1,7 +1,7 @@
 <template lang="html">
   <v-expand-transition>
     <v-card
-      color="blue"
+      color='blue'
       elevation="0"
       class="rounded-0"
       v-show="isMounted">
@@ -9,10 +9,41 @@
         <v-icon @click.stop="$router.back()">
           mdi-arrow-left
         </v-icon>
+        <v-spacer></v-spacer>
+        <v-btn
+          color="blue"
+          @click.stop="$_clickSubmit">
+          Submit
+        </v-btn>
       </v-app-bar>
       <v-card-text>
-        RegistryItemPage
+        <v-textarea
+          v-model="textArea"
+          solo
+          label="textarea"
+          height="200px"
+        ></v-textarea>
       </v-card-text>
+      <v-card-actions>
+        <v-row
+          align="center"
+          justify="space-around"
+          class="mt-n8 mb-2"
+        >
+          <v-icon
+            @click.stop="$_clickImage">
+            mdi-image
+          </v-icon>
+          <v-icon
+            @click.stop="$_clickCamera">
+            mdi-camera
+          </v-icon>
+          <v-icon
+            @click.stop="$_clickText">
+            mdi-card-text
+          </v-icon>
+        </v-row>
+      </v-card-actions>
     </v-card>
   </v-expand-transition>
 </template>
@@ -29,6 +60,7 @@
     data() {
       return {
         isMounted: false,
+        textArea: undefined,
       };
     },
     computed: {},
@@ -36,7 +68,20 @@
     components: {},
     // 컴포넌트 메서드 그룹
     watch: {},
-    methods: {},
+    methods: {
+      $_clickSubmit: function () {
+        console.log('RegistryItemPage.$_clickSubmit textArea=', this.textArea);
+      },
+      $_clickImage: function () {
+        console.log('RegistryItemPage.$_clickImage');
+      },
+      $_clickCamera: function () {
+        console.log('RegistryItemPage.$_clickCamera');
+      },
+      $_clickText: function () {
+        console.log('RegistryItemPage.$_clickText');
+      },
+    },
     // 컴포넌트 라이프사이클 메서드 그룹
     beforeCreate() {},
     mounted() {
