@@ -13,7 +13,7 @@
 <script type="text/javascript">
   export default {
     // 이름 적는 것을 잊지마세요
-    name: 'itemList',
+    name: 'item-list',
     // compose new components
     extends: {},
     // 컴포넌트 어트리뷰트 그룹
