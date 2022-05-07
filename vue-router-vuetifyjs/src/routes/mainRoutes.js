@@ -36,8 +36,8 @@ const routes = [
     ],
   },
   {
-    name: 'test',
-    path: '/test',
+    name: 'temp',
+    path: '/temp',
     component: () => import(/* webpackChunkName: "main" */ '@/components/PNavigationDrawer.vue'),
   },
 ];

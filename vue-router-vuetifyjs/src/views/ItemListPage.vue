@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-slide-x-reverse-transition :hide-on-leave="true">
+  <v-expand-transition>
     <v-card
       color="blue"
       :to="{ name: 'itemInfo' }"
@@ -8,7 +8,7 @@
         New Item
       </v-card-text>
     </v-card>
-  </v-slide-x-reverse-transition>
+  </v-expand-transition>
 </template>
 
 <script type="text/javascript">

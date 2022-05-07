@@ -1,12 +1,12 @@
 <template lang="html">
-  <v-slide-x-reverse-transition :hide-on-leave="true">
+  <v-expand-transition>
     <v-card
       color="blue"
       elevation="0"
       class="rounded-0"
       v-show="isMounted">
       <v-app-bar>
-        <v-icon @click.stop="$router.go(-2)">
+        <v-icon @click.stop="$_backRoute">
           mdi-arrow-left
         </v-icon>
       </v-app-bar>
@@ -14,7 +14,7 @@
         UserInfoPage
       </v-card-text>
     </v-card>
-  </v-slide-x-reverse-transition>
+  </v-expand-transition>
 </template>
 
 <script type="text/javascript">
@@ -36,11 +36,22 @@
     components: {},
     // 컴포넌트 메서드 그룹
     watch: {},
-    methods: {},
+    methods: {
+      $_backRoute: function () {
+        console.log('UserInfoPage.$_backRoute router');
+        this.$router.back();
+      },
+      $_handlePopstate: function (event) {
+        console.log('UserInfoPage.$_handlePopstate event', event);
+        removeEventListener("popstate", this.$_handlePopstate); 
+        this.$router.back();
+      },
+    },
     // 컴포넌트 라이프사이클 메서드 그룹
     beforeCreate() {},
     mounted() {
       this.isMounted = !this.isMounted;
+      addEventListener('popstate', this.$_handlePopstate);
     },
   };
 </script>

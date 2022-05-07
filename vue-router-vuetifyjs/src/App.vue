@@ -3,11 +3,11 @@
     <v-navigation-drawer
       app
       v-model="isActiveNavigationDrawer"
-      @input="$_back_router">
+      @input="$_backRoute">
       <v-list dense>
         <v-list-item
           link
-          :to="{ name: 'userInfo' }">
+          @click.stop="$_clickListItem">
           <v-list-item-icon>
             <v-icon>mdi-account</v-icon>
           </v-list-item-icon>
@@ -22,7 +22,7 @@
       app
       v-model="isActiveAppBar">
       <v-app-bar-nav-icon
-        @click.stop="$_click_app_bar_nav_icon"></v-app-bar-nav-icon>
+        @click.stop="$_clickAppBarNavIcon"></v-app-bar-nav-icon>
     </v-app-bar>
 
     <!-- アプリケーションのコンポーネントに基づいてコンテンツのサイズを決定 -->
@@ -63,11 +63,17 @@ export default {
     $route: '$_onRouteChange',
   },
   methods: {
-    $_onRouteChange: function () {
-      // 메인 페이지에서만 표시다하도록 한다.
-      this.isActiveAppBar = this.$route.name.includes('main');
+    $_clickAppBarNavIcon: function () {
+      // 브라우저의 뒤로가기 버튼으로도 닫게 하기위해서 가짜 패스로 이동한다.
+      this.$router.push({ name: 'main.layer' });
+      this.isActiveNavigationDrawer = !this.isActiveNavigationDrawer;
     },
-    $_back_router: function (isActive) {
+    $_clickListItem: function () {
+      console.log('App.$_clickListItem router');
+      this.$router.push({ name: 'userInfo' });
+    },
+    $_backRoute: function (isActive) {
+      console.log('App.$_backRoute isActive', isActive);
       if (!isActive) {
         // 브라우저의 뒤로가기 버튼을 클릭해도 isActive가 false여서 실행되기 때문에 main에서 실행되지 않기 위해 비교한다.
         if (this.$route.name === 'main.layer') {
@@ -76,10 +82,9 @@ export default {
         }
       }
     },
-    $_click_app_bar_nav_icon: function () {
-      // 브라우저의 뒤로가기 버튼으로도 닫게 하기위해서 가짜 패스로 이동한다.
-      this.$router.push({ name: 'main.layer' });
-      this.isActiveNavigationDrawer = !this.isActiveNavigationDrawer;
+    $_onRouteChange: function () {
+      // 메인 페이지에서만 표시하도록 한다.
+      this.isActiveAppBar = this.$route.name.includes('main');
     },
   },
   // 컴포넌트 라이프사이클 메서드 그룹

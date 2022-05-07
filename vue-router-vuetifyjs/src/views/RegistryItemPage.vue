@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-slide-x-reverse-transition :hide-on-leave="true">
+  <v-expand-transition>
     <v-card
       color="blue"
       elevation="0"
@@ -14,7 +14,7 @@
         RegistryItemPage
       </v-card-text>
     </v-card>
-  </v-slide-x-reverse-transition>
+  </v-expand-transition>
 </template>
 
 <script type="text/javascript">
