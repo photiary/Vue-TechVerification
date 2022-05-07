@@ -214,7 +214,7 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
 <script type="text/javascript">
   export default {
     // 이름 적는 것을 잊지마세요
-    name: 'VueName',
+    name: 'vue-name',
     // compose new components
     extends: {},
     // 컴포넌트 어트리뷰트 그룹
@@ -237,7 +237,13 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
     methods: {},
     // 컴포넌트 라이프사이클 메서드 그룹
     beforeCreate() {},
+    created() {},
+    beforeMount() {},
     mounted() {},
+    beforeUpdate() {},
+    updated() {},
+    beforeDestroy() {},
+    destroyed() {},
   };
 </script>
 
@@ -248,12 +254,12 @@ VSCode 설정 파일에 추가 (⚠️설정화면을 닫아야 에러 메시지
 
 ## Default vuex.js
 
-## Default router.js
+## Default routes.js
 ```js
 const routes = [
   {
     name: 'page',
-    path: '',
+    path: '/page',
     component: () => import(/* webpackChunkName: "page" */ '@/views/Page.vue'),
     children: [
 
@@ -263,3 +269,89 @@ const routes = [
 
 export default routes;
 ```
+
+`src/routes/index.js` 생성한 routes.js를 추가
+```js
+import mainRoutes from './mainRoutes'
+
+allRoutes = allRoutes.concat(
+  routes,
+  mainRoutes, // 추가
+);
+
+```
+
+# Vuetify.js
+추가로 Vuetify를 사용할 경우
+### Vuetify Setup
+참고 사이트 : [Webpack でのインストール](https://vuetifyjs.com/ja/getting-started/installation/#webpack-3067306e30a430f330b930c830fc30eb)
+```js
+npm install vuetify
+```
+
+### Icon setup
+참고 사이트 : [Material Design Icons](https://vuetifyjs.com/ja/features/icon-fonts/#material-design-icons)
+```js
+npm install @mdi/font
+```
+
+### `src/plugins/vuetify.js`
+```js
+import Vue from 'vue'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+import '@mdi/font/css/materialdesignicons.css'
+
+Vue.use(Vuetify)
+
+const opts = {
+  icons: {
+    iconfont: 'mdi', // default - only for display purposes
+  },
+}
+
+export default new Vuetify(opts)
+```
+
+### `src/main.js`
+```js
+import Vue from 'vue'
+import vuetify from '@/plugins/vuetify' // path to vuetify export
+
+new Vue({
+  vuetify,
+}).$mount('#app')
+```
+
+# Vuetify.js Reference Site
+
+## 🍪 Material Design Icons
+아이콘 이름을 검색할 때 사용. `mdi-`에 사용할 아이콘의 이름을 접미사로 사용
+
+[Material Design Icons](https://materialdesignicons.com/)
+```html
+<v-icon>mdi-filter</v-icon>
+```
+
+## 🍪 Spacing 
+컴포넌트의 간격을 조절할 때 사용.
+
+[Vuetifyjs Spacing](https://vuetifyjs.com/ja/styles/spacing/)
+
+- `p` - `padding`을 적용.
+- `r` - `margin-right`와`padding-right`을 적용.
+- size - 3의 배수로 사이즈가 달라진다. 4 * 3 = 12px
+
+```html
+<v-icon class="pr-4">mdi-filter</v-icon>
+```
+
+## 🍪 Flex
+컴포넌트를 한줄 또는 위치를 조절할 때 사용.
+
+[Vuetifyjs Flex](https://vuetifyjs.com/ja/styles/flex/)
+
+## 🍪 Border Radius
+컴포넌트 모서리에 라운드를 적용할 때 사용.
+
+[Border Radius](https://vuetifyjs.com/ja/styles/border-radius/)

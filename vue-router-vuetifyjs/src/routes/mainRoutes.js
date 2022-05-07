@@ -35,11 +35,6 @@ const routes = [
 
     ],
   },
-  {
-    name: 'temp',
-    path: '/temp',
-    component: () => import(/* webpackChunkName: "main" */ '@/components/PNavigationDrawer.vue'),
-  },
 ];
 
 export default routes;

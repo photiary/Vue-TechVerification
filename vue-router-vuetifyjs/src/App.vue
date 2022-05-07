@@ -7,7 +7,7 @@
       <v-list dense>
         <v-list-item
           link
-          @click.stop="$_clickListItem">
+         :to="{ name: 'userInfo' }">
           <v-list-item-icon>
             <v-icon>mdi-account</v-icon>
           </v-list-item-icon>
@@ -67,10 +67,6 @@ export default {
       // 브라우저의 뒤로가기 버튼으로도 닫게 하기위해서 가짜 패스로 이동한다.
       this.$router.push({ name: 'main.layer' });
       this.isActiveNavigationDrawer = !this.isActiveNavigationDrawer;
-    },
-    $_clickListItem: function () {
-      console.log('App.$_clickListItem router');
-      this.$router.push({ name: 'userInfo' });
     },
     $_backRoute: function (isActive) {
       console.log('App.$_backRoute isActive', isActive);
