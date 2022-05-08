@@ -2,7 +2,7 @@
   <v-app>
     <v-navigation-drawer
       app
-      v-model="isActiveNavigationDrawer"
+      v-model="isActiveLeftNavigationDrawer"
       @input="$_backRoute">
       <v-list dense>
         <v-list-item
@@ -23,6 +23,11 @@
       v-model="isActiveAppBar">
       <v-app-bar-nav-icon
         @click.stop="$_clickAppBarNavIcon"></v-app-bar-nav-icon>
+      <v-spacer></v-spacer>
+      <v-icon
+        @click="$_clickFilter">
+        mdi-filter
+      </v-icon>
     </v-app-bar>
 
     <!-- アプリケーションのコンポーネントに基づいてコンテンツのサイズを決定 -->
@@ -37,6 +42,16 @@
       </v-container>
     </v-main>
 
+    <v-navigation-drawer
+      app
+      bottom
+      height="80%"
+      v-model="isActiveBottomNavigationDrawer"
+      @input="$_backRoute">
+      <filter-page>
+      </filter-page>
+    </v-navigation-drawer>
+
     <v-footer app>
       <!-- -->
     </v-footer>
@@ -44,6 +59,8 @@
 </template>
 
 <script>
+import FilterPage from '@/views/FilterPage';
+
 export default {
   name: 'app',
   // compose new components
@@ -52,21 +69,30 @@ export default {
   data() {
     return {
       isActiveAppBar: true,
-      isActiveNavigationDrawer: false,
+      isActiveLeftNavigationDrawer: false,
+      isActiveBottomNavigationDrawer: false,
     };
   },
   computed: {},
   // 컴포넌트가 다른 컴포넌트를 사용할 경우
-  components: {},
+  components: {
+    FilterPage,
+  },
   // 컴포넌트 메서드 그룹
   watch: {
     $route: '$_onRouteChange',
   },
   methods: {
     $_clickAppBarNavIcon: function () {
+      this.$_showLayer('isActiveLeftNavigationDrawer');
+    },
+    $_clickFilter: function () {
+      this.$_showLayer('isActiveBottomNavigationDrawer');
+    },
+    $_showLayer: function (target) {
       // 브라우저의 뒤로가기 버튼으로도 닫게 하기위해서 가짜 패스로 이동한다.
       this.$router.push({ name: 'main.layer' });
-      this.isActiveNavigationDrawer = !this.isActiveNavigationDrawer;
+      this[target] = !this[target];
     },
     $_backRoute: function (isActive) {
       console.log('App.$_backRoute isActive', isActive);
@@ -78,6 +104,7 @@ export default {
         }
       }
     },
+
     $_onRouteChange: function () {
       // 메인 페이지에서만 표시하도록 한다.
       this.isActiveAppBar = this.$route.name.includes('main');
@@ -89,4 +116,11 @@ export default {
 </script>
 
 <style scoped>
+/* v-navigation-drawer bottom의 높이 속성이 50%이므로 높이 조절을 위해서 100%로 오버라이드 */
+.v-navigation-drawer--bottom.v-navigation-drawer--is-mobile {
+  max-height: 100%;
+  top: auto;
+  bottom: 0;
+  min-width: 100%;
+}
 </style>
