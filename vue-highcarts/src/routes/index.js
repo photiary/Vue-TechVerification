@@ -9,9 +9,9 @@ const routes = [
     path: '/',
   },
   {
-    name: 'lineChart',
-    path: '/lineChart',
-    component: () => import(/* webpackChunkName: "chart" */ '@/views/LineChart.vue'),
+    name: 'lineChart.01',
+    path: '/lineChart/01',
+    component: () => import(/* webpackChunkName: "home" */ '@/views/line/LineChart01.vue'),
   },
 ];
 
