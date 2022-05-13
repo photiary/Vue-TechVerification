@@ -33,8 +33,8 @@ Vuetifyjs + Veu Router 사용
 
 
 ---
-# v-model
+# 기능별 예제
 
-/vModel
-
-`v-model`예제: 부모 `data`와 자식  `props`, `data`가 동기화, `watch`와 `$emit`을 사용
+## 🍔 `v-model`
+- URL: /vModel
+- 설명: 부모 `data`와 자식  `props`, `data`가 동기화, `watch`와 `$emit`을 사용 
