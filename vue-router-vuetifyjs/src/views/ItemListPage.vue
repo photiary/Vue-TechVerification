@@ -1,13 +1,26 @@
 <template lang="html">
   <v-expand-transition>
-    <v-card
-      color="blue"
-      :to="{ name: 'itemInfo' }"
-    >
-      <v-card-text>
-        New Item
-      </v-card-text>
-    </v-card>
+    <!-- 네비게이션 바와 공간을 없애기 위해서 my-n2를 지정 -->
+    <v-list class="my-n2">
+      <template>
+        <v-card
+          color="blue"
+          :to="{ name: 'itemInfo' }"
+        >
+          <v-card-text>
+            New Item
+          </v-card-text>
+        </v-card>
+        <v-card
+          color="indigo"
+          :to="{ name: 'vModel' }"
+        >
+          <v-card-text>
+            1. v-model
+          </v-card-text>
+        </v-card>
+      </template>
+    </v-list>
   </v-expand-transition>
 </template>
 

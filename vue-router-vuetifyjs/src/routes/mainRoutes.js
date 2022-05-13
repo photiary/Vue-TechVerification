@@ -35,6 +35,14 @@ const routes = [
 
     ],
   },
+  {
+    name: 'vModel',
+    path: '/vModel',
+    component: () => import(/* webpackChunkName: "main" */ '@/views/vModel/VModelPage.vue'),
+    children: [
+
+    ],
+  },
 ];
 
 export default routes;

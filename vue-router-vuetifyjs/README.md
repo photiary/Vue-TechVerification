@@ -30,3 +30,11 @@ Vuetifyjs + Veu Router 사용
 - `UserInfoPage`는 `main/layer`에서 이동하므로, 뒤로가기 버튼을 클릭하면 `main/layer` > `main` 이렇게 두번 뒤로가야하므로 `back()`을 두번 호출한다.
 
 # Layout
+
+
+---
+# v-model
+
+/vModel
+
+`v-model`예제: 부모 `data`와 자식  `props`, `data`가 동기화, `watch`와 `$emit`을 사용
