@@ -43,6 +43,17 @@ const routes = [
 
     ],
   },
+  {
+    name: 'routeToggle',
+    path: '/routeToggle',
+    component: () => import(/* webpackChunkName: "main" */ '@/views/routeToggle/RouteTogglePage.vue'),
+    children: [
+      {
+        name: 'toggle',
+        path: 'toggle/:name',
+      },
+    ],
+  },
 ];
 
 export default routes;

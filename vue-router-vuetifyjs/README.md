@@ -37,4 +37,8 @@ Vuetifyjs + Veu Router 사용
 
 ## 🍔 `v-model`
 - URL: /vModel
-- 설명: 부모 `data`와 자식  `props`, `data`가 동기화, `watch`와 `$emit`을 사용 
+- 설명: 부모 `data`와 자식  `props`, `data`가 동기화, `watch`와 `$emit`을 사용
+
+## 🍔 `route` 토글
+- URL: /routeToggle
+- 설명: `route`로 컴포넌트를 토글한다. `watch`에 `$route`를 사용, 여러개 Child를 사용할 경우 `route`의 `params`를 사용해서 Child를 지정

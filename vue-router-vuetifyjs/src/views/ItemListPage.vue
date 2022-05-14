@@ -16,7 +16,15 @@
           :to="{ name: 'vModel' }"
         >
           <v-card-text>
-            1. v-model
+            01. v-model
+          </v-card-text>
+        </v-card>
+        <v-card
+          color="red"
+          :to="{ name: 'routeToggle' }"
+        >
+          <v-card-text>
+            02. route toggle
           </v-card-text>
         </v-card>
       </template>
