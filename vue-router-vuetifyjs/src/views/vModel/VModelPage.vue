@@ -1,9 +1,9 @@
 <template lang="html">
   <v-sheet>
     <v-btn
-      @click="$_clickActive"
+      @click="$_clickToggle"
     >
-      Active child.
+      Toggle child.
     </v-btn>
     <child v-model="isActive"></child>
   </v-sheet>
@@ -23,7 +23,7 @@
       Child,
     },
     methods: {
-      $_clickActive: function () {
+      $_clickToggle: function () {
         this.isActive = !this.isActive;
       },
     },
