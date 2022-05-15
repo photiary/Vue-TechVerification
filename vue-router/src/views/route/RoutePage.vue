@@ -13,7 +13,7 @@
 
 <script type="text/javascript">
   export default {
-    name: 'import-page',
+    name: 'route-page',
     data() {
       return {
         colorTitle: undefined,
