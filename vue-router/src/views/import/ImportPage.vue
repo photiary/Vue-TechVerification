@@ -7,7 +7,6 @@
 
     <red title="빨강" v-if="isActiveRed"></red>
     <yellow title="노랑" v-if="isActiveYellow"></yellow>
-
   </v-sheet>
 </template>
 
