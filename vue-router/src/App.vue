@@ -1,6 +1,7 @@
 <template>
-  <!-- vue-router를 사용할 경우 -->
-  <router-view></router-view>
+  <v-app>
+    <router-view></router-view>
+  </v-app>
 </template>
 
 <script>
