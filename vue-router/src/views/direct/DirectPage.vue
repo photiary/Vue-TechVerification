@@ -1,19 +1,20 @@
 <template lang="html">
   <v-sheet>
+    <h2>🥐 Direct</h2>
+
     <v-btn @click="$router.back()">◀ Back</v-btn>
 
-    <v-btn @click="toggleRed">Toggle Red</v-btn>
-    <v-btn @click="toggleYellow">Toggle Yellow</v-btn>
+    <v-btn @click="toggleColor('red')">Red</v-btn>
+    <v-btn @click="toggleColor('yellow')">Yellow</v-btn>
 
-    <v-card v-if="isActiveRed" color="red">
+    <v-card v-if="colorType === 'red'" color="red">
       <v-card-text>
-        {{ redTitle }}
+        빨강
       </v-card-text>
     </v-card>
-
-    <v-card v-if="isActiveYellow" color="yellow">
+    <v-card v-else-if="colorType === 'yellow'" color="yellow">
       <v-card-text>
-        {{ yellowTitle }}
+        노랑
       </v-card-text>
     </v-card>
   </v-sheet>
@@ -24,18 +25,15 @@
     name: 'direct-page',
     data() {
       return {
-        isActiveRed: false,
+        colorType: false,
         isActiveYellow: false,
-        redTitle: '빨강',
-        yellowTitle: '노랑',
       };
     },
     methods: {
-      toggleRed: function () {
-        this.isActiveRed = !this.isActiveRed
-      },
-      toggleYellow: function () {
-        this.isActiveYellow = !this.isActiveYellow
+      toggleColor: function (colorType) {
+        if (this.colorType !== colorType) {
+          this.colorType = colorType;
+        }
       },
     },
   };

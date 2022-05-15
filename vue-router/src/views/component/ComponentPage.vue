@@ -1,48 +1,40 @@
 <template lang="html">
   <v-sheet>
+    <h2>🌭 Component</h2>
+
     <v-btn @click="$router.back()">◀ Back</v-btn>
 
-    <v-btn @click="toggleRed">Toggle Red</v-btn>
-    <v-btn @click="toggleYellow">Toggle Yellow</v-btn>
+    <v-btn @click="toggleColor('Red', '빨강')">Red</v-btn>
+    <v-btn @click="toggleColor('Yellow', '노랑')">Yellow</v-btn>
+    <!-- <v-btn @click="toggleColor('Cooking', '요리')">Cooking</v-btn> -->
 
-    <component title="빨강" :is="redComponentName"></component>
-    <component title="노랑" :is="yellowComponentName"></component>
-
-    <component title="요리" :is="'Cooking'"></component>
+    <component :title="title" :is="targetComponent"></component>
   </v-sheet>
 </template>
 
 <script type="text/javascript">
   import Red from "@/components/Red"
   import Yellow from "@/components/Yellow"
-  import Cooking from "@/components/Cooking"
+  // import Cooking from "@/components/Cooking"
 
   export default {
     name: 'component-page',
     data() {
       return {
-        redComponentName: undefined,
-        yellowComponentName: undefined,
+        targetComponent: undefined,
+        title: undefined,
       };
     },
     components: {
       Red,
       Yellow,
-      Cooking,
+      // Cooking,
     },
     methods: {
-      toggleRed: function () {
-        if (this.redComponentName === 'Red') {
-          this.redComponentName = undefined;
-        } else {
-          this.redComponentName = 'Red';
-        }
-      },
-      toggleYellow: function () {
-        if (this.yellowComponentName === 'Yellow') {
-          this.yellowComponentName = undefined;
-        } else {
-          this.yellowComponentName = 'Yellow';
+      toggleColor: function (targetComponent, title) {
+        if (this.targetComponent !== targetComponent) {
+          this.targetComponent = targetComponent;
+          this.title = title;
         }
       },
     },

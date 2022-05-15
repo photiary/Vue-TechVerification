@@ -1,12 +1,14 @@
 <template lang="html">
   <v-sheet>
+    <h2>🍕 Import</h2>
+
     <v-btn @click="$router.back()">◀ Back</v-btn>
 
-    <v-btn @click="toggleRed">Toggle Red</v-btn>
-    <v-btn @click="toggleYellow">Toggle Yellow</v-btn>
+    <v-btn @click="toggleColor('red')">Red</v-btn>
+    <v-btn @click="toggleColor('yellow')">Yellow</v-btn>
 
-    <red title="빨강" v-if="isActiveRed"></red>
-    <yellow title="노랑" v-if="isActiveYellow"></yellow>
+    <red v-if="colorType === 'red'" title="빨강"></red>
+    <yellow v-else-if="colorType === 'yellow'" title="노랑"></yellow>
   </v-sheet>
 </template>
 
@@ -18,8 +20,7 @@
     name: 'import-page',
     data() {
       return {
-        isActiveRed: false,
-        isActiveYellow: false,
+        colorType: undefined,
       };
     },
     components: {
@@ -27,11 +28,10 @@
       Yellow,
     },
     methods: {
-      toggleRed: function () {
-        this.isActiveRed = !this.isActiveRed
-      },
-      toggleYellow: function () {
-        this.isActiveYellow = !this.isActiveYellow
+      toggleColor: function (colorType) {
+        if (this.colorType !== colorType) {
+          this.colorType = colorType;
+        }
       },
     },
   };

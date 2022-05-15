@@ -1,31 +1,29 @@
 <template lang="html">
   <v-sheet>
+    <h2>🍟 Route</h2>
+
     <v-btn @click="$router.back()">◀ Back</v-btn>
 
-    <v-btn @click="toggleRed">Toggle Red</v-btn>
-    <v-btn @click="toggleYellow">Toggle Yellow</v-btn>
+    <v-btn @click="toggleColor('red', '빨강')">Red</v-btn>
+    <v-btn @click="toggleColor('yellow', '노랑')">Yellow</v-btn>
 
-    <router-view title="빨강" name="red"></router-view>
-    <router-view title="노랑" name="yellow"></router-view>
+    <router-view :title="colorTitle"></router-view>
   </v-sheet>
 </template>
 
 <script type="text/javascript">
   export default {
     name: 'import-page',
+    data() {
+      return {
+        colorTitle: undefined,
+      };
+    },
     methods: {
-      toggleRed: function () {
-        if (this.$route.name === 'red') {
-          this.$router.back();
-        } else {
-          this.$router.push({ name: 'red' });
-        }
-      },
-      toggleYellow: function () {
-        if (this.$route.name === 'yellow') {
-          this.$router.back();
-        } else {
-          this.$router.push({ name: 'yellow' });
+      toggleColor: function (colorType, colorTitle) {
+        if (this.$route.name !== colorType) {
+          this.colorTitle = colorTitle;
+          this.$router.push({ name: colorType });
         }
       },
     },

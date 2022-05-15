@@ -32,12 +32,12 @@ const routes = [
       {
         name: 'red',
         path: 'red',
-        components: { red: () => import(/* webpackChunkName: "main" */ '@/components/Red.vue'), },
+        component: () => import(/* webpackChunkName: "main" */ '@/components/Red.vue'),
       },
       {
         name: 'yellow',
         path: 'yellow',
-        components: { yellow: () => import(/* webpackChunkName: "main" */ '@/components/Yellow.vue'), },
+        component: () => import(/* webpackChunkName: "main" */ '@/components/Yellow.vue'),
       },
     ],
   },
