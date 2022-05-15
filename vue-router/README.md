@@ -28,13 +28,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## ◆ 접근 키워드
 Vue 페이지 구성, 컴포넌트 분리, 조건부 렌더링, `v-if`, `v-else`, `v-else-if`,  동적 컴포넌트, `<component>`, `<router-view>`
 
-## ◆ Direct
+## ◆ 페이지 하나에
 - 페이지의 고유 기능으로 재활용성이 없는 것은 컴포넌트로 분리하지 않아도 된다.
-- 너무 작게 컴포넌트 분리하면 오히려 복잡도는 증가한다.
+- 너무 작은 기능으로 컴포넌트를 분리하면 오히려 복잡도는 증가한다.
 
 ## ◆ `import`
-- 페이지의 고유 기능이라 할지라도 너무 많은 기능이 있으며, 코드 가독성과 유지보수의 향상성을 위해 컴포넌트로 분리하는 것을 고려한다.
-- 재활용성이 있는 기능은 컴포넌트로 분리하는 것을 고려한다.
+- 페이지의 고유 기능이라 할지라도 너무 많은 기능이 있으면, 유지보수성과 코드 가독성 등의 향상을 위해 컴포넌트 분리를 고려한다.
+- 재활용성이 있는 기능은 컴포넌트 분리를 고려한다.
 
 ## ◆ `<component>`
 참조사이트> [https://kr.vuejs.org/v2/guide/components-dynamic-async.html](https://kr.vuejs.org/v2/guide/components-dynamic-async.html)
